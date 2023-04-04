@@ -1,0 +1,14 @@
+<div class="p-4">
+  <div *ngIf="isAuthenticated">
+    <button class="btn btn-primary m-2" [routerLink]="['/recipes']">Recipes</button>
+  </div>
+  <div *ngIf="!isAuthenticated">
+    <button class="btn btn-warning m-2" [routerLink]="['/auth']">Sign Up</button>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <button class="btn btn-danger m-2">Log Out</button>
+  </div>
+</div>
+
+<h1>Is Authentication: {{ isAuthenticated }}</h1>
+

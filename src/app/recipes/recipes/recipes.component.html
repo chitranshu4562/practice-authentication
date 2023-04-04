@@ -1,0 +1,29 @@
+<div class="m-4 p-5">
+  <form [formGroup]="recipeForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label>Recipe Name</label>
+      <input type="text" class="form-control" placeholder="Enter your recipe" formControlName="recipeName">
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Ingredient</label>
+      <input type="text" class="form-control" placeholder="Enter ingredient" formControlName="ingredient">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.valid">Create</button>
+  </form>
+</div>
+<div>
+  <h1 class="d-flex justify-content-center">Recipes List</h1>
+
+  <div *ngFor="let recipe of recieps">
+    <div class="card" style="width: 18rem; margin: 5px">
+      <div class="card-header">
+        <h1>{{ recipe.recipeName }}</h1>
+      </div>
+      <div class="card-body">
+        <h4>{{ recipe.ingredient }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
