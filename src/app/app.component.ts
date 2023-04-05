@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from "./rest.service";
 import {distinct} from "rxjs";
+import {AuthService} from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import {distinct} from "rxjs";
 })
 export class AppComponent implements OnInit{
   title = 'front-end';
-  constructor(private restService: RestService) {
+  constructor(private restService: RestService, private authService: AuthService) {
   }
 
   ngOnInit() {
+    this.authService.autoLogin();
   }
 }

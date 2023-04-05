@@ -16,16 +16,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userSubs = this.authService.user.subscribe(user => {
-      console.log(user)
       this.isAuthenticated = user ? true : false;
     })
-    console.log(this.isAuthenticated);
   }
   ngOnDestroy() {
     this.userSubs?.unsubscribe();
   }
 
-  logout() {
+  onLogout() {
     this.authService.logout();
   }
 }

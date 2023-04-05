@@ -1,6 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Subject} from "rxjs";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {exhaustMap, Subject, take} from "rxjs";
+import {AuthService} from "./auth/auth.service";
+import {User} from "./auth/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,9 @@ import {Subject} from "rxjs";
 export class RestService {
 
   apiUrl = 'http://localhost:3000/api/v1/';
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private authService: AuthService) {
+  }
 
   userDetails() {
     return this.http.get(this.apiUrl + 'users/user_details');
