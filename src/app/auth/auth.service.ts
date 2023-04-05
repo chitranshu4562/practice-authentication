@@ -77,4 +77,9 @@ export class AuthService {
     }
     return throwError(errMessage);
   }
+
+  logout() {
+    // @ts-ignore
+    this.user.next(null);
+  }
 }
