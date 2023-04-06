@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from "./rest.service";
-import {distinct} from "rxjs";
 import {AuthService} from "./auth/auth.service";
 
 @Component({
